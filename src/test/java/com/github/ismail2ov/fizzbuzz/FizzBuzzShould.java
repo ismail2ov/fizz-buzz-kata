@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,9 +25,10 @@ public class FizzBuzzShould {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Test
-    void convert_3_to_string_Fizz() {
-        String actual = fizzBuzz.convert(3);
+    @ParameterizedTest
+    @ValueSource(ints = {3, 6, 9})
+    void convert_numbers_divisible_by_3_and_not_divisible_by_5_to_Fizz(int input) {
+        String actual = fizzBuzz.convert(input);
 
         assertThat(actual).isEqualTo("Fizz");
     }
