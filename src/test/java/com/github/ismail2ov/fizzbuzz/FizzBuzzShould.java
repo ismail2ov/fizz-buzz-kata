@@ -37,4 +37,11 @@ public class FizzBuzzShould {
 
         assertThat(actual).isEqualTo("Buzz");
     }
+
+    @Test
+    void convert_15_to_string_FizzBuzz() {
+        String actual = fizzBuzz.convert(15);
+
+        assertThat(actual).isEqualTo("FizzBuzz");
+    }
 }
