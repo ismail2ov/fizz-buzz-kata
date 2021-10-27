@@ -2,16 +2,20 @@ package com.github.ismail2ov.fizzbuzz;
 
 public class FizzBuzz {
     public String convert(int number) {
-        if (number % 3 == 0) {
-            if (number % 5 == 0) {
+        if (isDivisibleBy(3, number)) {
+            if (isDivisibleBy(5, number)) {
                 return "FizzBuzz";
             }
             return "Fizz";
         }
-        if (number % 5 == 0) {
+        if (isDivisibleBy(5, number)) {
             return "Buzz";
         }
 
         return String.valueOf(number);
+    }
+
+    private boolean isDivisibleBy(int divisor, int number) {
+        return number % divisor == 0;
     }
 }
