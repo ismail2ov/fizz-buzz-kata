@@ -28,4 +28,9 @@ public class FizzBuzzShould {
     void convert_3_to_string_Fizz() {
         assertThat(fizzBuzz.convert(3)).isEqualTo("Fizz");
     }
+
+    @Test
+    void convert_4_to_string_4() {
+        assertThat(fizzBuzz.convert(4)).isEqualTo("4");
+    }
 }
