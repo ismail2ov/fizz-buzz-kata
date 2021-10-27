@@ -41,9 +41,10 @@ public class FizzBuzzShould {
         assertThat(actual).isEqualTo("Buzz");
     }
 
-    @Test
-    void convert_15_to_string_FizzBuzz() {
-        String actual = fizzBuzz.convert(15);
+    @ParameterizedTest
+    @ValueSource(ints = {15, 30, 45})
+    void convert_numbers_divisible_by_15_to_Buzz(int input) {
+        String actual = fizzBuzz.convert(input);
 
         assertThat(actual).isEqualTo("FizzBuzz");
     }
