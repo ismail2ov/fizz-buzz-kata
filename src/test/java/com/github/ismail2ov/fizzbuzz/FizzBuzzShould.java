@@ -2,6 +2,8 @@ package com.github.ismail2ov.fizzbuzz;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,23 +16,16 @@ public class FizzBuzzShould {
         this.fizzBuzz = new FizzBuzz();
     }
 
-    @Test
-    void convert_1_to_string_1() {
-        assertThat(this.fizzBuzz.convert(1)).isEqualTo("1");
-    }
+    @ParameterizedTest
+    @CsvSource({"1,1", "2,2", "4,4"})
+    void convert_regular_number_to_string(int input, String expected) {
+        String actual = this.fizzBuzz.convert(input);
 
-    @Test
-    void convert_2_to_string_2() {
-        assertThat(this.fizzBuzz.convert(2)).isEqualTo("2");
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void convert_3_to_string_Fizz() {
         assertThat(fizzBuzz.convert(3)).isEqualTo("Fizz");
-    }
-
-    @Test
-    void convert_4_to_string_4() {
-        assertThat(fizzBuzz.convert(4)).isEqualTo("4");
     }
 }
