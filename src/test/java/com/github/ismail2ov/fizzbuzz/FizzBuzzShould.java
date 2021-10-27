@@ -33,9 +33,10 @@ public class FizzBuzzShould {
         assertThat(actual).isEqualTo("Fizz");
     }
 
-    @Test
-    void convert_3_to_string_Buzz() {
-        String actual = fizzBuzz.convert(5);
+    @ParameterizedTest
+    @ValueSource(ints = {5, 10, 20})
+    void convert_numbers_divisible_by_5_and_not_divisible_by_3_to_Buzz(int input) {
+        String actual = fizzBuzz.convert(input);
 
         assertThat(actual).isEqualTo("Buzz");
     }
